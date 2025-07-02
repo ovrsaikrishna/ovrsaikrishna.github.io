@@ -641,8 +641,11 @@ h6 {
 }
 
 #site-content {
-  opacity: 0;
   transition: opacity 0.8s ease-in-out;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 /*--------------------------------------------------------------
 # Scroll Top Button
