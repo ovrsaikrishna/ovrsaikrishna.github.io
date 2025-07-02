@@ -63,12 +63,34 @@
   /**
    * Preloader
    */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
+// const preloader = document.querySelector('#preloader');
+// if (preloader) {
+//   window.addEventListener('load', () => {
+//     setTimeout(() => {
+//       preloader.remove();
+//     }, 5000); // 2000 ms = 2 seconds delay
+//   });
+// }
+const preloader = document.querySelector('#preloader');
+const siteContent = document.querySelector('#site-content');
+
+if (preloader) {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      preloader.style.transition = "opacity 0.5s ease";
+      preloader.style.opacity = "0";
+
+      setTimeout(() => {
+        preloader.remove();
+        if (siteContent) {
+          siteContent.style.opacity = "1";  // ⬅️ This makes your content visible
+        }
+      }, 500); // match fade-out time
+    }, 2000); // preloader delay
+  });
+}
+
+
 
   /**
    * Scroll top button
